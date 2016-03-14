@@ -10,6 +10,10 @@ source:
   url: https://nodejs.org/dist/v4.4.0/node-v4.4.0-linux-x64.tar.gz [linux64]
   sha256: 114a865effcff2783022ef0fcd30d1e51624d6c28140db0bdc662bcd0f850d8b [linux64]
 
+  fn: node-v4.4.0-linux-x86.tar.gz [linux64]
+  url: https://nodejs.org/dist/v4.4.0/node-v4.4.0-linux-x86.tar.gz [linux32]
+  sha256: 53eb070a459838fb5bff9edc8260b6d0007409d36b8f2917bc1e523e92d6d99f [linux32]
+
   fn: node-v4.4.0-darwin-x64.tar.gz [osx]
   url: https://nodejs.org/dist/v4.4.0/node-v4.4.0-darwin-x64.tar.gz [osx]
   sha256: 650c2f1e186a4974304b652321fbb3c4bd22ee7bc7c2c406c6e244dd6a6d38be [osx]

@@ -3,6 +3,7 @@ user: javascript
 
 platform:
   - linux-64
+  - linux-32
   - osx-64
   - win-64
 
