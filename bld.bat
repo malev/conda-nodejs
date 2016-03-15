@@ -1,8 +1,19 @@
-msiexec /a node-v%PKG_VERSION%-x64.msi /qb TARGETDIR=%TEMP%
-mkdir %SCRIPTS%
+if "%ARCH%"=="32" (
+   set PLATFORM=x86
+) else (
+  set PLATFORM=x64
+)
 
-copy %TEMP%\nodejs\node.exe %SCRIPTS%
-xcopy /i /e /y %TEMP%\nodejs\node_modules %LIBRARY_LIB%\node_modules
+call vcbuild.bat nosign release %PLATFORM%
 
-echo @echo off > %SCRIPTS%\npm.cmd
-echo node "%LIBRARY_LIB%\.\node_modules\npm\bin\npm-cli.js" %%* >> %SCRIPTS%\npm.cmd
+COPY Release\node.exe "%LIBRARY_BIN%\node.exe"
+
+curl -LO https://github.com/npm/npm/archive/v3.8.2.zip
+7za x v3.8.2.zip
+
+mkdir "%LIBRARY_BIN%\node_modules"
+mkdir "%LIBRARY_BIN%\node_modules\npm"
+ROBOCOPY npm-3.8.2\ "%LIBRARY_BIN%\node_modules\npm" * /E
+COPY npm-3.8.2\bin\npm.cmd "%LIBRARY_BIN%\npm.cmd"
+
+if %ERRORLEVEL% LSS 8 exit 0
