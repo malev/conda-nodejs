@@ -13,7 +13,7 @@ gunzip -d v3.8.2.zip
 
 mkdir "%LIBRARY_BIN%\node_modules"
 mkdir "%LIBRARY_BIN%\node_modules\npm"
-ROBOCOPY npm-3.8.2\ "%LIBRARY_BIN%\node_modules\npm" * /E
+XCOPY /i /e /y /q npm-3.8.2 "%LIBRARY_BIN%\node_modules\npm"
 COPY npm-3.8.2\bin\npm.cmd "%LIBRARY_BIN%\npm.cmd"
 
 if %ERRORLEVEL% LSS 8 exit 0
